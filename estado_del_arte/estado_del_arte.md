@@ -4,7 +4,7 @@
 
 Los sistemas de control de acceso con RFID permiten identificar usuarios mediante tarjetas o llaveros sin contacto. En los últimos años, han sido muy utilizados por su bajo costo y facilidad de implementación en proyectos académicos y aplicaciones reales.
 
-##Sistemas con Arduino y RC522
+Sistemas con Arduino y RC522
 
 En proyectos académicos, el uso de Arduino junto al lector RC522 es muy común para validar tarjetas RFID. Estos sistemas suelen almacenar una lista de usuarios en el propio dispositivo y activar un actuador (servo o relé) al detectar una credencial autorizada. Su principal limitación es la falta de conectividad y gestión centralizada, lo que restringe el número de usuarios y la auditoría de accesos.
 
