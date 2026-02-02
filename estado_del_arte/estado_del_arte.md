@@ -2,24 +2,28 @@
 
 ## Sistemas de control de accesos con RFID
 
-## Introducción
-Los sistemas de control de accesos permiten restringir la entrada a espacios físicos
-mediante algún método de identificación. Actualmente, la tecnología RFID es una de las
-más utilizadas por su bajo costo y facilidad de implementación.
+Los sistemas de control de acceso con RFID permiten identificar usuarios mediante tarjetas o llaveros sin contacto. En los últimos años, han sido muy utilizados por su bajo costo y facilidad de implementación en proyectos académicos y aplicaciones reales.
 
-Este estado del arte revisa proyectos relacionados con sistemas de control de accesos
-basados en RFID, similares al proyecto desarrollado en este repositorio.
+###Sistemas con Arduino y RC522
 
-## Desarrollo
-La mayoría de los proyectos analizados utilizan tarjetas o llaveros RFID que son leídos
-por un microcontrolador. Los lectores más comunes son el RC522, debido a su
-compatibilidad con Arduino y ESP32.
+En proyectos académicos, el uso de Arduino junto al lector RC522 es muy común para validar tarjetas RFID. Estos sistemas suelen almacenar una lista de usuarios en el propio dispositivo y activar un actuador (servo o relé) al detectar una credencial autorizada. Su principal limitación es la falta de conectividad y gestión centralizada, lo que restringe el número de usuarios y la auditoría de accesos.
 
-Una tendencia clara es el uso del ESP32 por su conectividad WiFi, lo que permite validar
-accesos y almacenar registros en bases de datos como MySQL. Para la apertura física se
-emplean relés, servomotores o cerraduras eléctricas.
+### Evolución con ESP32 y WiFi
 
-## Conclusión
-Los sistemas de control de accesos con RFID son una solución ampliamente utilizada. El
-proyecto presentado se basa en estas implementaciones para desarrollar un sistema
-funcional y práctico.
+El uso del ESP32 representa un avance importante porque permite conectar el sistema a Internet. Esto posibilita enviar datos a una base de datos, gestionar usuarios de forma remota y registrar accesos en tiempo real. Los trabajos revisados muestran que el ESP32 es ideal para integrar RFID con servicios web y almacenamiento remoto.
+
+### Integración con base de datos
+
+La conexión a bases de datos (como MySQL) permite almacenar registros de accesos, usuarios y horarios, lo cual es clave para auditoría y control. Los enfoques más comunes son:
+
+Validación local + registro remoto, o
+
+Validación remota en servidor.
+
+### Actuadores
+
+Para la apertura física se utilizan principalmente servomotores (en proyectos pequeños) y relés para controlar cerraduras eléctricas en sistemas más robustos.
+
+Conclusión
+
+Los sistemas RFID con Arduino/ESP32 y RC522 son una solución accesible para control de accesos. La tendencia actual es integrar ESP32 con bases de datos para gestionar usuarios y registrar accesos en tiempo real. Aun así, se detecta una oportunidad de mejora en seguridad (clonación de tarjetas) y en la gestión avanzada de usuarios. El proyecto de este repositorio se basa en estas implementaciones para desarrollar un sistema funcional con registro en base de datos.
